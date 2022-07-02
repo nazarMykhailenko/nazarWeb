@@ -1,0 +1,122 @@
+// default style
+
+* {
+    font-family: 'Montserrat';
+    font-weight: 400;
+}
+
+// reset
+
+@import "reset.scss";
+
+// registration
+
+@import "registration.scss";
+
+// main page default
+
+@import "mainPage.scss";
+
+// aside
+
+@import "aside.scss";
+
+// header 
+
+@import "header.scss";
+
+// adaptive
+
+@media (max-width:1080px) { 
+    .header__title {
+        margin: 0px 20px;
+    }
+    .main__page {
+        grid-template-columns: 1fr;
+        grid-template-rows: 15% 85%;
+    }
+    .aside {
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: -100%;
+        width: 200px;
+        z-index: 2;
+        transition: all .3s ease 0s;
+        &._active {
+            left: 0;
+        }
+    }
+    .logo {
+        padding-top: 50px;
+    }
+
+    header.header {
+        position: relative;
+    }
+
+    // burger
+    .icon__burger {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        display: block;
+        z-index: 5;
+    }
+
+    .burger {
+        width: 30px;
+        height: 18px;
+        position: relative;
+        cursor: pointer;
+        span {
+            top: 50%;
+            position: absolute;
+            display: inline-block;
+            height: 2px;
+            width: 100%;
+            background-color: #191818;
+            transform: translateY(-50%);
+        }
+        &::before,&::after {
+            content: '';
+        }
+        &::before,&::after, .burger span {
+            position: absolute;
+            display: inline-block;
+            height: 2px;
+            width: 100%;
+            background-color: #191818;
+        }
+        &::before {
+            top: 0;
+        }
+        &::after {
+            bottom: 0;
+        }
+
+        &._active {
+            span {
+                transition: all .3s ease 0s;
+                transform: scale(0);
+            }
+            &::before,
+            &::after {
+                transition: all .3s ease 0s;
+                background-color: #fff;
+            }
+        
+            &::before {
+                top: 50%;
+                transform: translate(0px, -50%) rotate(-45deg);
+            }
+
+            &::after {
+                bottom: 50%;
+                transform: translate(0px, 50%) rotate(45deg);
+            }
+        }
+    }
+
+        
+}

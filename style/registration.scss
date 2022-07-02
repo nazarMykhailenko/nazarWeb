@@ -1,0 +1,138 @@
+.registration {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000000;
+    min-width: 100%;
+    min-height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0,10,5,.9);
+    transition: all .3s ease 0s;
+    &._hide {
+        visibility: hidden;
+        opacity: 0;
+    }
+}
+
+.registration__content {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding: 40px;
+    background-color: #fff;
+    input {
+        width: 100%;
+        transition: all .5s ease 0s;
+        &:focus {
+            outline: none;
+            background-color: #ccc;
+        }
+        border-bottom: 1px solid #ccc;
+        padding: 15px 20px;
+        font-size: 1.2rem;
+    }
+}
+
+#registration__emailInput {
+    &:not(:last-child) {
+        margin-bottom: 20px;
+    }
+}
+
+.registration__title {
+    font-size: 2rem;
+    text-transform: uppercase;
+    line-height: 1.5;
+    &:not(:last-child) {
+        margin-bottom: 30px;
+    }
+    font-weight: 500;
+}
+
+.links__block {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px 0;
+    font-size: 0.875rem;
+    a {
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}
+
+.checkbox__block {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+input[type="submit"] {
+    background-color: #ccc;
+    &:hover {
+        background-color: rgb(200, 200, 200);
+    }
+    &:focus {
+        background-color: rgb(181, 181, 181);
+    }
+}
+
+.custom-checkInput {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #7e9bbd;
+    border-radius: 4px;
+    position: relative;
+    &::before {
+        content: '';
+        display: inline-block;
+        width: 13px;
+        height: 13px;
+        background-image: url('../img/check.svg');
+        background-repeat: no-repeat;
+        background-size: contain;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%,-50%) scale(0);
+        transition: all .3s ease 0s;
+    }
+}
+
+#registration__checkInput {
+    width: 0;
+    height: 0;
+    opacity: 0;
+    position: absolute;
+    z-index: -10;
+}
+
+#registration__checkInput:checked + .custom-checkInput::before {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.errors {
+    color: rgb(244, 29, 29);
+    font-size: 1.1rem;
+    p {
+        margin-bottom: 10px;
+    }
+}
+
+.password__inputBlock {
+    position: relative;
+    img {
+        position: absolute;
+        right: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 30px;
+        height: 30px;
+        max-width: 100%;
+        cursor: pointer;
+    }
+}
